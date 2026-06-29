@@ -156,5 +156,24 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
   }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility gradient-hero {
+  background-image: var(--gradient-hero);
+}
+@utility gradient-accent {
+  background-image: var(--gradient-accent);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-elev {
+  box-shadow: var(--shadow-elev);
 }
