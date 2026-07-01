@@ -72,7 +72,7 @@ function Navbar() {
             <Building2 className="h-5 w-5" />
           </span>
           <div className="leading-tight">
-            <div className="font-display text-base font-bold text-primary">Kabinetsengkuni</div>
+            <div className="font-display text-base font-bold text-primary">SagaraStudio</div>
             <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               Digital Agency
             </div>
@@ -189,7 +189,7 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Kabinetsengkuni membantu instansi dan bisnis melakukan transformasi digital melalui
+              SagaraStudio membantu instansi dan bisnis melakukan transformasi digital melalui
               aplikasi, website, dan sistem informasi modern — dirancang dengan standar enterprise.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -343,7 +343,7 @@ function About() {
               center={false}
               eyebrow="Tentang Kami"
               title="Mitra digital untuk instansi dan bisnis modern"
-              desc="Kabinetsengkuni adalah agency teknologi yang fokus membangun solusi digital terpercaya — dari portal instansi hingga sistem informasi internal yang kompleks."
+              desc="SagaraStudio adalah agency teknologi yang fokus membangun solusi digital terpercaya — dari portal instansi hingga sistem informasi internal yang kompleks."
             />
             <div className="mt-8 grid gap-4">
               <Card className="rounded-xl border-border p-5 shadow-soft">
@@ -476,7 +476,7 @@ function Advantages() {
             <SectionHeading
               center={false}
               eyebrow="Keunggulan"
-              title="Alasan instansi memilih Kabinetsengkuni"
+              title="Alasan instansi memilih SagaraStudio"
               desc="Kami menggabungkan standar pengerjaan enterprise dengan pendekatan modern — memberikan rasa aman sekaligus pengalaman digital yang menyenangkan."
             />
           </div>
@@ -644,7 +644,7 @@ const testimonials = [
     name: "Bapak Surya Aditama",
     role: "Kepala Bidang TI, Dinas Kominfo",
     quote:
-      "Kabinetsengkuni sangat profesional. Portal yang dibuat memenuhi standar pemerintahan dan mudah digunakan oleh staf kami.",
+      "SagaraStudio sangat profesional. Portal yang dibuat memenuhi standar pemerintahan dan mudah digunakan oleh staf kami.",
     initials: "SA",
   },
   {
@@ -835,7 +835,7 @@ function Footer() {
               <span className="grid h-9 w-9 place-items-center rounded-lg bg-white/10">
                 <Building2 className="h-5 w-5" />
               </span>
-              <div className="font-display text-base font-bold">Kabinetsengkuni</div>
+              <div className="font-display text-base font-bold">SagaraStudio</div>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
               Agency teknologi yang membangun aplikasi, website, dan sistem informasi modern untuk
@@ -880,7 +880,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/60 sm:flex-row sm:items-center">
-          <div>© {new Date().getFullYear()} Kabinetsengkuni. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} SagaraStudio. All rights reserved.</div>
           <div>Built with care for Indonesia&apos;s digital future.</div>
         </div>
       </div>
