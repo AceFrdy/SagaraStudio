@@ -36,6 +36,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
 
 import p1 from "@/assets/portfolio-1.jpg";
 import p2 from "@/assets/portfolio-2.jpg";
@@ -1326,6 +1327,7 @@ export function LandingPage() {
         <Contact />
       </main>
       <Footer />
+      <Toaster />
     </div>
   );
 }
