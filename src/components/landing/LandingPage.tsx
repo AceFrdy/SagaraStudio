@@ -463,25 +463,25 @@ function About() {
             />
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl glass p-5 shadow-soft">
+              <div className="min-w-0 rounded-2xl glass p-5 shadow-soft">
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">
                   Vision
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+                <p className="mt-2 break-words text-sm leading-relaxed text-foreground/80">
                   To be Indonesia&apos;s most trusted partner in digital transformation.
                 </p>
               </div>
-              <div className="rounded-2xl glass p-5 shadow-soft">
+              <div className="min-w-0 rounded-2xl glass p-5 shadow-soft">
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">
                   Mission
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+                <p className="mt-2 break-words text-sm leading-relaxed text-foreground/80">
                   Build secure, elegant, modern products that create real impact.
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl glass p-6 shadow-glass">
+            <div className="mt-6 min-w-0 rounded-2xl glass p-6 shadow-glass">
               <div className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
                 Timeline
               </div>
@@ -492,10 +492,10 @@ function About() {
                   ["2023", "Launched enterprise cloud & data practice."],
                 ].map(([y, t]) => (
                   <li key={y} className="flex items-start gap-4">
-                    <span className="mt-0.5 grid h-9 w-14 place-items-center rounded-lg gradient-accent text-xs font-bold text-accent-foreground shadow-soft">
+                    <span className="mt-0.5 grid h-9 w-14 shrink-0 place-items-center rounded-lg gradient-accent text-xs font-bold text-accent-foreground shadow-soft">
                       {y}
                     </span>
-                    <span className="text-sm text-foreground/80">{t}</span>
+                    <span className="min-w-0 break-words text-sm text-foreground/80">{t}</span>
                   </li>
                 ))}
               </ul>
@@ -783,7 +783,7 @@ function Stats() {
     <section className="relative -mt-10 pb-16">
       <WaveDivider from="var(--surface)" to="var(--background)" />
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {bigStats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -791,15 +791,17 @@ function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group relative overflow-hidden rounded-[26px] border border-white/60 bg-white/80 p-6 shadow-glass backdrop-blur-md"
+              className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-[22px] border border-white/60 bg-white/80 p-4 shadow-glass backdrop-blur-md sm:aspect-auto sm:rounded-[26px] sm:p-6"
             >
               <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/25 blur-2xl" />
-              <s.icon className="h-6 w-6 text-secondary" />
-              <div className="mt-3 font-display text-4xl font-bold text-primary">
-                <Counter to={s.value} suffix={s.suffix} />
-              </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                {s.label}
+              <s.icon className="h-5 w-5 text-secondary sm:h-6 sm:w-6" />
+              <div>
+                <div className="font-display text-3xl font-bold leading-none text-primary sm:mt-3 sm:text-4xl">
+                  <Counter to={s.value} suffix={s.suffix} />
+                </div>
+                <div className="mt-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">
+                  {s.label}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -1335,7 +1337,7 @@ function Footer() {
 
 export function LandingPage() {
   return (
-    <div className="relative overflow-x-hidden bg-background text-foreground">
+    <div className="relative overflow-x-clip bg-background text-foreground">
       <Navbar />
       <main>
         <Hero />
