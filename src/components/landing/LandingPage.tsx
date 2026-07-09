@@ -503,7 +503,7 @@ function About() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="grid gap-5 sm:grid-cols-2">
+            <div className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
@@ -511,7 +511,7 @@ function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className={`group relative overflow-hidden rounded-[28px] border border-white/60 bg-white/70 p-7 shadow-glass backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${
+                  className={`group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-[28px] border border-white/60 bg-white/70 p-7 shadow-glass backdrop-blur-md transition-all duration-300 hover:-translate-y-1 sm:w-auto sm:shrink ${
                     i % 3 === 0 ? "rounded-tl-[8px]" : ""
                   } ${i % 3 === 1 ? "rounded-br-[8px]" : ""}`}
                 >
@@ -579,7 +579,7 @@ function Services() {
           desc="From strategy through launch and beyond, we deliver the full digital stack under one roof."
         />
 
-        <div className="mt-16 grid auto-rows-[minmax(220px,auto)] gap-5 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="-mx-4 mt-16 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[minmax(220px,auto)] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {services.map((s, i) => {
             const span =
               s.size === "lg"
@@ -594,7 +594,7 @@ function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.45, delay: i * 0.05 }}
-                className={`${span} group relative overflow-hidden rounded-[28px] border border-white/60 bg-white/75 p-7 shadow-glass backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5`}
+                className={`${span} group relative w-[80%] shrink-0 snap-start overflow-hidden rounded-[28px] border border-white/60 bg-white/75 p-7 shadow-glass backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 sm:w-auto sm:shrink`}
               >
                 {/* gradient border wash */}
                 <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-br from-accent/20 via-transparent to-secondary/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -675,7 +675,7 @@ function Portfolio() {
           ))}
         </div>
 
-        <div className="mt-12 grid auto-rows-[220px] gap-5 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="-mx-4 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[220px] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {filtered.map((p, i) => (
             <motion.article
               key={p.title}
@@ -684,7 +684,7 @@ function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.04 }}
-              className={`group relative overflow-hidden rounded-[28px] border border-white/60 bg-primary shadow-glass ${p.span}`}
+              className={`group relative aspect-[4/5] w-[80%] shrink-0 snap-start overflow-hidden rounded-[28px] border border-white/60 bg-primary shadow-glass sm:aspect-auto sm:w-auto sm:shrink ${p.span}`}
             >
               <img
                 src={p.img}
