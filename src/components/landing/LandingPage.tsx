@@ -783,7 +783,7 @@ function Stats() {
     <section className="relative -mt-10 pb-16">
       <WaveDivider from="var(--surface)" to="var(--background)" />
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {bigStats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -791,15 +791,17 @@ function Stats() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group relative overflow-hidden rounded-[26px] border border-white/60 bg-white/80 p-6 shadow-glass backdrop-blur-md"
+              className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-[22px] border border-white/60 bg-white/80 p-4 shadow-glass backdrop-blur-md sm:aspect-auto sm:rounded-[26px] sm:p-6"
             >
               <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/25 blur-2xl" />
-              <s.icon className="h-6 w-6 text-secondary" />
-              <div className="mt-3 font-display text-4xl font-bold text-primary">
-                <Counter to={s.value} suffix={s.suffix} />
-              </div>
-              <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                {s.label}
+              <s.icon className="h-5 w-5 text-secondary sm:h-6 sm:w-6" />
+              <div>
+                <div className="font-display text-3xl font-bold leading-none text-primary sm:mt-3 sm:text-4xl">
+                  <Counter to={s.value} suffix={s.suffix} />
+                </div>
+                <div className="mt-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground sm:text-xs">
+                  {s.label}
+                </div>
               </div>
             </motion.div>
           ))}
