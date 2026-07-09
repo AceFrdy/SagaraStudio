@@ -463,25 +463,25 @@ function About() {
             />
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl glass p-5 shadow-soft">
+              <div className="min-w-0 rounded-2xl glass p-5 shadow-soft">
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">
                   Vision
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+                <p className="mt-2 break-words text-sm leading-relaxed text-foreground/80">
                   To be Indonesia&apos;s most trusted partner in digital transformation.
                 </p>
               </div>
-              <div className="rounded-2xl glass p-5 shadow-soft">
+              <div className="min-w-0 rounded-2xl glass p-5 shadow-soft">
                 <div className="text-[11px] font-semibold uppercase tracking-wider text-accent">
                   Mission
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+                <p className="mt-2 break-words text-sm leading-relaxed text-foreground/80">
                   Build secure, elegant, modern products that create real impact.
                 </p>
               </div>
             </div>
 
-            <div className="mt-6 rounded-2xl glass p-6 shadow-glass">
+            <div className="mt-6 min-w-0 rounded-2xl glass p-6 shadow-glass">
               <div className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
                 Timeline
               </div>
@@ -492,10 +492,10 @@ function About() {
                   ["2023", "Launched enterprise cloud & data practice."],
                 ].map(([y, t]) => (
                   <li key={y} className="flex items-start gap-4">
-                    <span className="mt-0.5 grid h-9 w-14 place-items-center rounded-lg gradient-accent text-xs font-bold text-accent-foreground shadow-soft">
+                    <span className="mt-0.5 grid h-9 w-14 shrink-0 place-items-center rounded-lg gradient-accent text-xs font-bold text-accent-foreground shadow-soft">
                       {y}
                     </span>
-                    <span className="text-sm text-foreground/80">{t}</span>
+                    <span className="min-w-0 break-words text-sm text-foreground/80">{t}</span>
                   </li>
                 ))}
               </ul>
