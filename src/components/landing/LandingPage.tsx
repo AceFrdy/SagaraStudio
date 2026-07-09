@@ -1335,7 +1335,7 @@ function Footer() {
 
 export function LandingPage() {
   return (
-    <div className="relative overflow-x-hidden bg-background text-foreground">
+    <div className="relative overflow-x-clip bg-background text-foreground">
       <Navbar />
       <main>
         <Hero />
