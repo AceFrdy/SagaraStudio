@@ -833,43 +833,66 @@ function Process() {
         />
 
         <div className="relative mt-16">
-          {/* center line */}
-          <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-accent/50 to-transparent md:block" />
+          {/* horizontal connector line (desktop) */}
+          <div className="pointer-events-none absolute inset-x-0 top-[52px] hidden h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent lg:block" />
 
-          <ol className="space-y-8">
-            {steps.map((s, i) => {
-              const left = i % 2 === 0;
-              return (
+          {/* Desktop: 6-column grid */}
+          <ol className="hidden lg:grid lg:grid-cols-6 lg:gap-5">
+            {steps.map((s, i) => (
+              <motion.li
+                key={s.n}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+                className="group relative flex flex-col items-center text-center"
+              >
+                {/* node */}
+                <div className="relative z-10 flex h-[104px] w-[104px] items-center justify-center rounded-full border border-white/70 bg-white/90 shadow-glass backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-1">
+                  <div className="absolute inset-1.5 rounded-full gradient-ocean opacity-90" />
+                  <span className="relative font-display text-2xl font-extrabold text-primary-foreground">
+                    {s.n}
+                  </span>
+                  <span className="absolute -inset-2 rounded-full border border-accent/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                </div>
+
+                <div className="mt-6 w-full rounded-2xl border border-white/60 bg-white/70 px-4 py-5 shadow-glass/60 backdrop-blur-md transition-all duration-500 group-hover:border-accent/50 group-hover:bg-white/90">
+                  <h3 className="font-display text-base font-bold text-primary">{s.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{s.text}</p>
+                </div>
+              </motion.li>
+            ))}
+          </ol>
+
+          {/* Mobile / tablet: horizontal snap scroller */}
+          <div className="lg:hidden -mx-4 sm:-mx-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <ol className="flex snap-x snap-mandatory gap-4 px-4 sm:px-6">
+              {steps.map((s, i) => (
                 <motion.li
                   key={s.n}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: 24 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.45, delay: i * 0.05 }}
-                  className="relative md:grid md:grid-cols-2 md:gap-10"
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  className="relative w-[240px] shrink-0 snap-center"
                 >
-                  <div
-                    className={`${
-                      left ? "md:col-start-1 md:pr-10 md:text-right" : "md:col-start-2 md:pl-10"
-                    }`}
-                  >
-                    <div className="relative overflow-hidden rounded-[28px] border border-white/60 bg-white/80 p-7 shadow-glass backdrop-blur-md">
-                      <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/20 blur-3xl" />
-                      <div className="font-display text-5xl font-extrabold text-accent/25">
+                  <div className="flex items-center gap-3">
+                    <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/70 shadow-glass">
+                      <div className="absolute inset-1 rounded-full gradient-ocean" />
+                      <span className="relative font-display text-sm font-extrabold text-primary-foreground">
                         {s.n}
-                      </div>
-                      <h3 className="mt-1 font-display text-xl font-bold text-primary">
-                        {s.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
+                      </span>
                     </div>
+                    <div className="h-px flex-1 bg-gradient-to-r from-accent/60 to-transparent" />
                   </div>
-                  {/* node */}
-                  <span className="absolute left-1/2 top-6 hidden h-4 w-4 -translate-x-1/2 rounded-full gradient-accent shadow-glass ring-4 ring-background md:block" />
+                  <div className="mt-4 rounded-2xl border border-white/60 bg-white/80 p-5 shadow-glass backdrop-blur-md">
+                    <h3 className="font-display text-base font-bold text-primary">{s.title}</h3>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{s.text}</p>
+                  </div>
                 </motion.li>
-              );
-            })}
-          </ol>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </section>
