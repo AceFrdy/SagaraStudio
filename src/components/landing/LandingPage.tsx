@@ -856,10 +856,11 @@ function Process() {
                 {/* node */}
                 <div className="relative z-10 flex h-[104px] w-[104px] items-center justify-center rounded-full border border-white/70 bg-white/90 shadow-glass backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-1">
                   <div className="absolute inset-1.5 rounded-full gradient-ocean opacity-90" />
-                  <span className="relative font-display text-2xl font-extrabold text-primary-foreground">
+                  <s.icon className="relative h-8 w-8 text-primary-foreground" />
+                  <span className="absolute -inset-2 rounded-full border border-accent/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full border border-white/50 bg-white/90 text-[10px] font-bold text-primary shadow-sm">
                     {s.n}
                   </span>
-                  <span className="absolute -inset-2 rounded-full border border-accent/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
 
                 <div className="mt-6 w-full rounded-2xl border border-white/60 bg-white/70 px-4 py-5 shadow-glass/60 backdrop-blur-md transition-all duration-500 group-hover:border-accent/50 group-hover:bg-white/90">
