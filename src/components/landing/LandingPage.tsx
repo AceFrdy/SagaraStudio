@@ -886,7 +886,8 @@ function Process() {
                   <div className="flex items-center gap-3">
                     <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/70 shadow-glass">
                       <div className="absolute inset-1 rounded-full gradient-ocean" />
-                      <span className="relative font-display text-sm font-extrabold text-primary-foreground">
+                      <s.icon className="relative h-6 w-6 text-primary-foreground" />
+                      <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full border border-white/50 bg-white/90 text-[9px] font-bold text-primary shadow-sm">
                         {s.n}
                       </span>
                     </div>
