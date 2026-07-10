@@ -855,7 +855,7 @@ function Process() {
               >
                 {/* node */}
                 <div className="relative z-10 flex h-[104px] w-[104px] items-center justify-center rounded-full border-4 border-white shadow-glass transition-transform duration-500 group-hover:-translate-y-1 gradient-ocean">
-                  <s.icon className="relative h-10 w-10 text-white drop-shadow-md" strokeWidth={2.2} />
+                  <s.icon className="relative h-10 w-10 text-black drop-shadow-md" strokeWidth={2.2} />
                   <span className="absolute -inset-2 rounded-full border border-accent/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full border border-white/50 bg-white/90 text-[10px] font-bold text-primary shadow-sm">
                     {s.n}
@@ -884,7 +884,7 @@ function Process() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-white shadow-glass gradient-ocean">
-                      <s.icon className="relative h-7 w-7 text-white drop-shadow" strokeWidth={2.2} />
+                      <s.icon className="relative h-7 w-7 text-black drop-shadow" strokeWidth={2.2} />
                       <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full border border-white/50 bg-white/90 text-[9px] font-bold text-primary shadow-sm">
                         {s.n}
                       </span>
