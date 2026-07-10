@@ -820,12 +820,12 @@ function Stats() {
  * ──────────────────────────────────────────────────────────────── */
 
 const steps = [
-  { n: "01", title: "Discovery", text: "Understand goals, users, and scope." },
-  { n: "02", title: "Strategy", text: "Architecture, timeline, and cost planning." },
-  { n: "03", title: "Design", text: "UX flows, systems, and premium visuals." },
-  { n: "04", title: "Build", text: "Iterative development with weekly reviews." },
-  { n: "05", title: "Launch", text: "Managed deployment and team enablement." },
-  { n: "06", title: "Support", text: "Continuous care and long-term evolution." },
+  { n: "01", title: "Discovery", text: "Understand goals, users, and scope.", icon: Search },
+  { n: "02", title: "Strategy", text: "Architecture, timeline, and cost planning.", icon: Lightbulb },
+  { n: "03", title: "Design", text: "UX flows, systems, and premium visuals.", icon: Palette },
+  { n: "04", title: "Build", text: "Iterative development with weekly reviews.", icon: Code2 },
+  { n: "05", title: "Launch", text: "Managed deployment and team enablement.", icon: Rocket },
+  { n: "06", title: "Support", text: "Continuous care and long-term evolution.", icon: Headphones },
 ];
 
 function Process() {
