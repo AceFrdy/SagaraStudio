@@ -30,6 +30,10 @@ import {
   Instagram,
   Linkedin,
   Twitter,
+  Search,
+  Lightbulb,
+  Palette,
+  Code2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -816,12 +820,12 @@ function Stats() {
  * ──────────────────────────────────────────────────────────────── */
 
 const steps = [
-  { n: "01", title: "Discovery", text: "Understand goals, users, and scope." },
-  { n: "02", title: "Strategy", text: "Architecture, timeline, and cost planning." },
-  { n: "03", title: "Design", text: "UX flows, systems, and premium visuals." },
-  { n: "04", title: "Build", text: "Iterative development with weekly reviews." },
-  { n: "05", title: "Launch", text: "Managed deployment and team enablement." },
-  { n: "06", title: "Support", text: "Continuous care and long-term evolution." },
+  { n: "01", title: "Discovery", text: "Understand goals, users, and scope.", icon: Search },
+  { n: "02", title: "Strategy", text: "Architecture, timeline, and cost planning.", icon: Lightbulb },
+  { n: "03", title: "Design", text: "UX flows, systems, and premium visuals.", icon: Palette },
+  { n: "04", title: "Build", text: "Iterative development with weekly reviews.", icon: Code2 },
+  { n: "05", title: "Launch", text: "Managed deployment and team enablement.", icon: Rocket },
+  { n: "06", title: "Support", text: "Continuous care and long-term evolution.", icon: Headphones },
 ];
 
 function Process() {
@@ -852,10 +856,11 @@ function Process() {
                 {/* node */}
                 <div className="relative z-10 flex h-[104px] w-[104px] items-center justify-center rounded-full border border-white/70 bg-white/90 shadow-glass backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-1">
                   <div className="absolute inset-1.5 rounded-full gradient-ocean opacity-90" />
-                  <span className="relative font-display text-2xl font-extrabold text-primary-foreground">
+                  <s.icon className="relative h-8 w-8 text-primary-foreground" />
+                  <span className="absolute -inset-2 rounded-full border border-accent/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full border border-white/50 bg-white/90 text-[10px] font-bold text-primary shadow-sm">
                     {s.n}
                   </span>
-                  <span className="absolute -inset-2 rounded-full border border-accent/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 </div>
 
                 <div className="mt-6 w-full rounded-2xl border border-white/60 bg-white/70 px-4 py-5 shadow-glass/60 backdrop-blur-md transition-all duration-500 group-hover:border-accent/50 group-hover:bg-white/90">
@@ -881,7 +886,8 @@ function Process() {
                   <div className="flex items-center gap-3">
                     <div className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-white/70 shadow-glass">
                       <div className="absolute inset-1 rounded-full gradient-ocean" />
-                      <span className="relative font-display text-sm font-extrabold text-primary-foreground">
+                      <s.icon className="relative h-6 w-6 text-primary-foreground" />
+                      <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full border border-white/50 bg-white/90 text-[9px] font-bold text-primary shadow-sm">
                         {s.n}
                       </span>
                     </div>
