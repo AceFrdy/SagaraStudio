@@ -455,10 +455,10 @@ const values = [
 
 function About() {
   return (
-    <section id="tentang" className="relative py-24 sm:py-32">
+    <section id="tentang" className="relative overflow-hidden py-24 sm:py-32">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
         <div className="grid items-start gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="min-w-0 lg:col-span-5">
             <SectionHeading
               center={false}
               eyebrow="About"
@@ -506,8 +506,9 @@ function About() {
             </div>
           </div>
 
-          <div className="lg:col-span-7">
-            <div className="-mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="min-w-0 lg:col-span-7">
+            <div className="-mx-4 overflow-hidden sm:mx-0 sm:overflow-visible">
+            <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-4 px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:p-1 sm:scroll-pl-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
@@ -519,7 +520,7 @@ function About() {
                     i % 3 === 0 ? "rounded-tl-[8px]" : ""
                   } ${i % 3 === 1 ? "rounded-br-[8px]" : ""}`}
                 >
-                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/20 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
+                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent/20 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <span className="relative grid h-12 w-12 place-items-center rounded-2xl gradient-accent text-accent-foreground shadow-soft transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <v.icon className="h-5 w-5" />
                   </span>
@@ -527,6 +528,7 @@ function About() {
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{v.text}</p>
                 </motion.div>
               ))}
+            </div>
             </div>
 
             {/* Large image */}
@@ -583,7 +585,8 @@ function Services() {
           desc="From strategy through launch and beyond, we deliver the full digital stack under one roof."
         />
 
-        <div className="-mx-4 mt-16 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[minmax(220px,auto)] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="-mx-4 overflow-hidden sm:mx-0 sm:overflow-visible">
+        <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-4 px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[minmax(220px,auto)] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-2 sm:scroll-pl-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {services.map((s, i) => {
             const span =
               s.size === "lg"
@@ -629,6 +632,7 @@ function Services() {
               </motion.div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>
@@ -679,7 +683,8 @@ function Portfolio() {
           ))}
         </div>
 
-        <div className="-mx-4 mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[220px] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="-mx-4 mt-12 overflow-hidden sm:mx-0 sm:overflow-visible">
+        <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-4 px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[220px] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-2 sm:scroll-pl-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {filtered.map((p, i) => (
             <motion.article
               key={p.title}
@@ -710,6 +715,7 @@ function Portfolio() {
               </div>
             </motion.article>
           ))}
+        </div>
         </div>
       </div>
     </section>
@@ -871,7 +877,8 @@ function Process() {
           </ol>
 
           {/* Mobile / tablet: horizontal snap scroller */}
-          <div className="lg:hidden -mx-4 sm:-mx-6 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="lg:hidden -mx-4 overflow-hidden sm:-mx-6">
+          <div className="overflow-x-auto pb-4 scroll-pl-4 sm:scroll-pl-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <ol className="flex snap-x snap-mandatory gap-4 px-4 sm:px-6">
               {steps.map((s, i) => (
                 <motion.li
@@ -899,6 +906,7 @@ function Process() {
               ))}
             </ol>
           </div>
+          </div>
         </div>
       </div>
     </section>
@@ -912,33 +920,68 @@ function Process() {
 const testimonials = [
   {
     name: "Surya Aditama",
-    role: "Head of IT, Dinas Kominfo",
+    role: "Head of IT",
+    org: "Dinas Kominfo",
     quote:
-      "SagaraStudio delivered a portal that meets our stringent government standards and remains a pleasure to use for our staff.",
+      "SagaraStudio delivered a portal that meets our stringent government standards and remains a genuine pleasure to use for our staff — day after day.",
     initials: "SA",
+    color: "from-[oklch(0.45_0.18_230)] to-[oklch(0.35_0.16_250)]",
+    tag: "Government",
   },
   {
     name: "Ratih Pratiwi",
-    role: "Director, PT Mitra Andalan",
+    role: "Director",
+    org: "PT Mitra Andalan",
     quote:
-      "Clear communication and premium execution. Our internal systems are dramatically more efficient and auditable now.",
+      "Clear communication and premium execution. Our internal systems are dramatically more efficient, auditable, and our team actually enjoys using them now.",
     initials: "RP",
+    color: "from-[oklch(0.48_0.2_195)] to-[oklch(0.38_0.18_215)]",
+    tag: "Enterprise",
   },
   {
     name: "Hendra Wijaya",
-    role: "Principal, SMA Negeri 1",
+    role: "Principal",
+    org: "SMA Negeri 1",
     quote:
-      "The school MIS transformed how our teachers, parents, and administration collaborate. A truly enterprise-grade product.",
+      "The school MIS fundamentally transformed how our teachers, parents, and administration collaborate. A truly enterprise-grade product built with real empathy.",
     initials: "HW",
+    color: "from-[oklch(0.42_0.17_260)] to-[oklch(0.32_0.15_280)]",
+    tag: "Education",
   },
 ];
 
 function Testimonials() {
   const [idx, setIdx] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const dragStartX = useRef(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const len = testimonials.length;
+
+  const resetTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => setIdx((v) => (v + 1) % len), 6000);
+  };
+
   useEffect(() => {
-    const t = setInterval(() => setIdx((v) => (v + 1) % testimonials.length), 6000);
-    return () => clearInterval(t);
+    resetTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, []);
+
+  const goTo = (i: number) => { setIdx((i + len) % len); resetTimer(); };
+  const prev = () => goTo(idx - 1);
+  const next = () => goTo(idx + 1);
+
+  const handleDragStart = (e: React.TouchEvent | React.MouseEvent) => {
+    setDragging(true);
+    dragStartX.current = "touches" in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
+  };
+  const handleDragEnd = (e: React.TouchEvent | React.MouseEvent) => {
+    if (!dragging) return;
+    setDragging(false);
+    const endX = "changedTouches" in e ? e.changedTouches[0].clientX : (e as React.MouseEvent).clientX;
+    const diff = dragStartX.current - endX;
+    if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+  };
   return (
     <section id="testimoni" className="relative overflow-hidden bg-surface py-24 sm:py-32">
       <div className="pointer-events-none absolute inset-0 -z-10 gradient-ocean opacity-60" />
@@ -948,52 +991,145 @@ function Testimonials() {
           title="Voices from the ocean of our clients."
         />
 
-        <div className="relative mt-14 h-[320px] sm:h-[280px]">
+        {/* 3-D card stack */}
+        <div
+          className="relative mt-14 flex justify-center"
+          style={{ height: 480, perspective: "1400px" }}
+          onMouseDown={handleDragStart}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={() => { if (dragging) { setDragging(false); } }}
+          onTouchStart={handleDragStart}
+          onTouchEnd={handleDragEnd}
+        >
+          {/* ── Ghost/shadow cards (decorative depth foreshadow) ── */}
+          {[
+            { scale: 0.76, y: 82,  x: 48,  rotateZ:  9,  opacity: 0.38, bg: "bg-white/80" },
+            { scale: 0.69, y: 108, x: 62,  rotateZ: 12,  opacity: 0.26, bg: "bg-white/60" },
+            { scale: 0.62, y: 132, x: 74,  rotateZ: 15,  opacity: 0.17, bg: "bg-white/45" },
+            { scale: 0.55, y: 154, x: 84,  rotateZ: 18,  opacity: 0.11, bg: "bg-white/30" },
+            { scale: 0.48, y: 174, x: 93,  rotateZ: 21,  opacity: 0.07, bg: "bg-white/20" },
+          ].map((g, gi) => (
+            <div
+              key={`ghost-${gi}`}
+              className={`pointer-events-none absolute w-full max-w-2xl rounded-[32px] border border-white/40 ${g.bg} shadow-soft`}
+              style={{
+                height: 380,
+                transformOrigin: "top center",
+                transform: `translateY(${g.y}px) translateX(${g.x}px) rotateZ(${g.rotateZ}deg) scale(${g.scale})`,
+                opacity: g.opacity,
+                zIndex: 4 - gi,
+              }}
+            />
+          ))}
+
+          {/* ── Real testimonial cards ── */}
           {testimonials.map((t, i) => {
-            const offset = (i - idx + testimonials.length) % testimonials.length;
-            const active = offset === 0;
+            const offset = (i - idx + len) % len;
+            const isActive = offset === 0;
+            const isSecond = offset === 1;
+            const isThird  = offset === 2;
+            const visible  = isActive || isSecond || isThird;
+
             return (
               <motion.figure
                 key={t.name}
                 animate={{
-                  x: `${(offset - 1) * 4}%`,
-                  scale: active ? 1 : 0.94,
-                  opacity: active ? 1 : 0.35,
-                  zIndex: active ? 10 : 1,
+                  scale:   isActive ? 1    : isSecond ? 0.91 : 0.83,
+                  y:       isActive ? 0    : isSecond ? 28   : 52,
+                  x:       isActive ? 0    : isSecond ? 18   : 34,
+                  rotateZ: isActive ? 0    : isSecond ? 3    : 6,
+                  opacity: isActive ? 1    : isSecond ? 0.82 : visible ? 0.52 : 0,
+                  zIndex:  isActive ? 30   : isSecond ? 20   : 10,
                 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="absolute inset-x-0 mx-auto max-w-2xl rounded-[32px] border border-white/60 bg-white/85 p-8 shadow-glass backdrop-blur-md sm:p-10"
+                transition={{ type: "spring", stiffness: 280, damping: 28 }}
+                style={{ transformOrigin: "top center", pointerEvents: isActive ? "auto" : "none" }}
+                className="absolute w-full max-w-2xl cursor-grab select-none overflow-hidden rounded-[32px] border border-white/60 bg-white shadow-glass backdrop-blur-md active:cursor-grabbing"
               >
-                <Quote className="h-10 w-10 text-accent/50" />
-                <blockquote className="mt-4 font-display text-lg leading-relaxed text-primary sm:text-xl">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-6 flex items-center gap-3 border-t border-primary/10 pt-5">
-                  <div className="grid h-11 w-11 place-items-center rounded-full gradient-accent text-sm font-bold text-accent-foreground shadow-soft">
-                    {t.initials}
+                {/* Gradient top banner */}
+                <div className={`relative bg-gradient-to-br ${t.color} px-8 pt-8 pb-10`}>
+                  <span className="inline-block rounded-full border border-white/30 bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/90 backdrop-blur-sm">
+                    {t.tag}
+                  </span>
+                  <div className="mt-4 flex gap-1">
+                    {[...Array(5)].map((_, si) => (
+                      <svg key={si} viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 text-yellow-300 drop-shadow">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
                   </div>
-                  <div>
-                    <div className="font-display font-bold text-primary">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
-                  </div>
-                </figcaption>
+                  <svg viewBox="0 0 40 32" className="absolute right-8 top-6 h-16 w-16 text-white/10" fill="currentColor">
+                    <path d="M0 32V19.2C0 8.533 6.4 2.133 19.2 0l2.4 4.267C15.467 5.6 12 8.533 12 13.333V16h8V32H0zm20 0V19.2C20 8.533 26.4 2.133 39.2 0l2.4 4.267C35.467 5.6 32 8.533 32 13.333V16h8V32H20z" />
+                  </svg>
+                </div>
+
+                {/* Card body */}
+                <div className="px-8 pb-8 pt-6">
+                  <blockquote className="font-display text-[1.05rem] font-semibold leading-relaxed text-primary sm:text-lg">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-4">
+                    <div
+                      className={`grid shrink-0 place-items-center rounded-2xl bg-gradient-to-br ${t.color} text-base font-bold text-white shadow-soft`}
+                      style={{ width: 52, height: 52 }}
+                    >
+                      {t.initials}
+                    </div>
+                    <div>
+                      <div className="font-display text-base font-bold text-primary">{t.name}</div>
+                      <div className="mt-0.5 text-xs text-muted-foreground">
+                        {t.role} · <span className="font-semibold text-secondary">{t.org}</span>
+                      </div>
+                    </div>
+                  </figcaption>
+                </div>
               </motion.figure>
             );
           })}
         </div>
 
-        <div className="mt-6 flex justify-center gap-2">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIdx(i)}
-              aria-label={`Slide ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${
-                idx === i ? "w-8 gradient-accent" : "w-2 bg-primary/25"
-              }`}
-            />
-          ))}
+        {/* Controls row */}
+        <div className="mt-8 flex items-center justify-center gap-4">
+          {/* Prev */}
+          <button
+            onClick={prev}
+            aria-label="Previous testimonial"
+            className="grid h-10 w-10 place-items-center rounded-full border border-primary/15 bg-white/70 text-primary/60 shadow-soft backdrop-blur transition-all hover:border-accent/40 hover:text-secondary hover:shadow-glass"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+            </svg>
+          </button>
+
+          {/* Dots */}
+          <div className="flex items-center gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Slide ${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === i ? "w-8 gradient-accent" : "w-2 bg-primary/25"
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Next */}
+          <button
+            onClick={next}
+            aria-label="Next testimonial"
+            className="grid h-10 w-10 place-items-center rounded-full border border-primary/15 bg-white/70 text-primary/60 shadow-soft backdrop-blur transition-all hover:border-accent/40 hover:text-secondary hover:shadow-glass"
+          >
+            <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+            </svg>
+          </button>
         </div>
+
+        {/* Swipe hint — mobile only */}
+        <p className="mt-3 text-center text-[11px] font-medium uppercase tracking-widest text-muted-foreground/50 sm:hidden">
+          swipe to explore
+        </p>
       </div>
     </section>
   );
