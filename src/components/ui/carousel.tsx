@@ -42,13 +42,22 @@ const Carousel = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CarouselProps
 >(({ orientation = "horizontal", opts, setApi, plugins, className, children, ...props }, ref) => {
-  const [carouselRef, api] = useEmblaCarousel(
-    {
-      ...opts,
-      axis: orientation === "horizontal" ? "x" : "y",
-    },
-    plugins,
-  );
+  // Ensure horizontal carousels default to center alignment so the first
+  // slide isn't stuck flush to the left on small screens. Allow caller opts
+  // to override `align` if provided.
+  const mergedOpts: CarouselOptions = {
+    ...(opts || {}),
+    axis: orientation === "horizontal" ? "x" : "y",
+  } as CarouselOptions;
+
+  if (orientation === "horizontal" && typeof mergedOpts?.align === "undefined") {
+    // 0.5 centers slides
+    // embla accepts a number between 0 and 1 for alignment
+    // (0 = left/start, 0.5 = center, 1 = end/right)
+    (mergedOpts as any).align = 0.5;
+  }
+
+  const [carouselRef, api] = useEmblaCarousel(mergedOpts, plugins);
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
@@ -137,18 +146,20 @@ const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     const { carouselRef, orientation } = useCarousel();
 
     return (
-      <div ref={carouselRef} className="overflow-hidden">
-        <div
-          ref={ref}
-          className={cn(
-            "flex",
-            orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
-            className,
-          )}
-          {...props}
-        />
-      </div>
-    );
+        <div ref={carouselRef} className="overflow-hidden px-4 sm:px-6">
+          <div
+            ref={ref}
+            className={cn(
+              // Remove the negative left margin so the carousel has padding
+              // from the viewport edge; keep vertical spacing for vertical mode.
+              "flex",
+              orientation === "horizontal" ? undefined : "-mt-4 flex-col",
+              className,
+            )}
+            {...props}
+          />
+        </div>
+      );
   },
 );
 CarouselContent.displayName = "CarouselContent";
@@ -163,7 +174,9 @@ const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
         role="group"
         aria-roledescription="slide"
         className={cn(
-          "min-w-0 shrink-0 grow-0 basis-full",
+          // Use a narrower basis on small screens so the slide can be centered
+          // and show neighbouring slides; full width on larger screens.
+          "min-w-0 shrink-0 grow-0 basis-[85%] sm:basis-full",
           orientation === "horizontal" ? "pl-4" : "pt-4",
           className,
         )}
