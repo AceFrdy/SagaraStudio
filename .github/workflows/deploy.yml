@@ -1,0 +1,26 @@
+name: Trigger Dokploy Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call Dokploy Webhook
+        run: |
+          if [ "${{ github.ref_name }}" = "main" ]; then
+            curl -f -X POST "${{ secrets.DOKPLOY_WEBHOOK_URL }}" \
+              -H "Content-Type: application/json" \
+              -H "X-GitHub-Event: push" \
+              -d '{"ref":"refs/heads/main","repository":{"full_name":"AceFrdy/KencanaDigital"}}'
+          elif [ "${{ github.ref_name }}" = "dev" ]; then
+            curl -f -X POST "${{ secrets.DOKPLOY_WEBHOOK_URL_DEV }}" \
+              -H "Content-Type: application/json" \
+              -H "X-GitHub-Event: push" \
+              -d '{"ref":"refs/heads/dev","repository":{"full_name":"AceFrdy/KencanaDigital"}}'
+          fi

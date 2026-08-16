@@ -171,7 +171,7 @@ function BrandMark() {
         <span className="absolute -inset-1 -z-10 rounded-2xl bg-accent/30 blur-md" />
       </span>
       <div className="leading-tight">
-        <div className="font-display text-base font-bold text-primary">SagaraStudio</div>
+        <div className="font-display text-base font-bold text-primary">Kencana Digital</div>
         <div className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
           Ocean · Digital
         </div>
@@ -289,15 +289,16 @@ const heroStats = [
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-24 sm:pt-40 lg:pb-32">
+    <section id="top" className="relative overflow-hidden pt-28 pb-12 sm:pt-36 lg:pb-16">
       <OceanBackdrop />
 
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
         <div className="grid items-center gap-14 lg:grid-cols-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-7"
           >
             <Eyebrow>Premium Digital Agency · Est. 2015</Eyebrow>
@@ -324,7 +325,7 @@ function Hero() {
               digital experiences for modern enterprises.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              SagaraStudio is a coastal technology studio building award-winning websites,
+              Kencana Digital is a coastal technology studio building award-winning websites,
               applications, and information systems — engineered with enterprise-grade craft and
               elegant, immersive design.
             </p>
@@ -364,9 +365,10 @@ function Hero() {
 
           {/* Right visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
+            initial={{ opacity: 0, scale: 0.94, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="relative lg:col-span-5"
           >
             <div className="relative mx-auto aspect-square w-full max-w-[520px]">
@@ -455,10 +457,16 @@ const values = [
 
 function About() {
   return (
-    <section id="tentang" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="tentang" className="relative overflow-hidden py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
         <div className="grid items-start gap-14 lg:grid-cols-12">
-          <div className="min-w-0 lg:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            className="min-w-0 lg:col-span-5"
+          >
             <SectionHeading
               center={false}
               eyebrow="About"
@@ -504,7 +512,7 @@ function About() {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
 
           <div className="min-w-0 lg:col-span-7">
             <div className="-mx-4 overflow-hidden sm:mx-0 sm:overflow-visible">
@@ -512,10 +520,10 @@ function About() {
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
-                  initial={{ opacity: 0, y: 14 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  viewport={{ once: false, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
                   className={`group relative w-[78%] shrink-0 snap-start overflow-hidden rounded-[28px] border border-white/60 bg-white/70 p-7 shadow-glass backdrop-blur-md transition-all duration-300 hover:-translate-y-1 sm:w-auto sm:shrink ${
                     i % 3 === 0 ? "rounded-tl-[8px]" : ""
                   } ${i % 3 === 1 ? "rounded-br-[8px]" : ""}`}
@@ -576,14 +584,21 @@ const services = [
 
 function Services() {
   return (
-    <section id="layanan" className="relative overflow-hidden bg-surface py-24 sm:py-32">
+    <section id="layanan" className="relative overflow-hidden bg-surface py-12 sm:py-16 lg:py-20">
       <div className="pointer-events-none absolute inset-0 -z-10 gradient-ocean opacity-70" />
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <SectionHeading
-          eyebrow="Services"
-          title="End-to-end digital capability."
-          desc="From strategy through launch and beyond, we deliver the full digital stack under one roof."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionHeading
+            eyebrow="Services"
+            title="End-to-end digital capability."
+            desc="From strategy through launch and beyond, we deliver the full digital stack under one roof."
+          />
+        </motion.div>
 
         <div className="-mx-4 overflow-hidden sm:mx-0 sm:overflow-visible">
         <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-4 px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[minmax(220px,auto)] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-2 sm:scroll-pl-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -597,10 +612,10 @@ function Services() {
             return (
               <motion.div
                 key={s.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.45, delay: i * 0.05 }}
+                viewport={{ once: false, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
                 className={`${span} group relative w-[80%] shrink-0 snap-start overflow-hidden rounded-[28px] border border-white/60 bg-white/75 p-7 shadow-glass backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 sm:w-auto sm:shrink`}
               >
                 {/* gradient border wash */}
@@ -658,16 +673,29 @@ function Portfolio() {
   const [active, setActive] = useState("All");
   const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
   return (
-    <section id="portofolio" className="relative py-24 sm:py-32">
+    <section id="portofolio" className="relative py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <SectionHeading
-          eyebrow="Portfolio"
-          title="Selected work."
-          desc="A curated selection of institutional and enterprise projects delivered with care."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionHeading
+            eyebrow="Portfolio"
+            title="Selected work."
+            desc="A curated selection of institutional and enterprise projects delivered with care."
+          />
+        </motion.div>
 
         {/* Filter chips */}
-        <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2"
+        >
           {categories.map((c) => (
             <button
               key={c}
@@ -681,7 +709,7 @@ function Portfolio() {
               {c}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         <div className="-mx-4 mt-12 overflow-hidden sm:mx-0 sm:overflow-visible">
         <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-pl-4 px-4 pb-4 sm:mx-0 sm:grid sm:auto-rows-[220px] sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-2 sm:scroll-pl-0 lg:grid-cols-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -689,10 +717,10 @@ function Portfolio() {
             <motion.article
               key={p.title}
               layout
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.04 }}
+              initial={{ opacity: 0, y: 25, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
               className={`group relative aspect-[4/5] w-[80%] shrink-0 snap-start overflow-hidden rounded-[28px] border border-white/60 bg-primary shadow-glass sm:aspect-auto sm:w-auto sm:shrink ${p.span}`}
             >
               <img
@@ -735,22 +763,29 @@ const advantages = [
 
 function WhyUs() {
   return (
-    <section id="keunggulan" className="relative overflow-hidden bg-surface py-24 sm:py-32">
+    <section id="keunggulan" className="relative overflow-hidden bg-surface py-12 sm:py-16 lg:py-20">
       <div className="pointer-events-none absolute inset-0 -z-10 gradient-ocean opacity-60" />
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <SectionHeading
-          eyebrow="Why Choose Us"
-          title="Craft, care, and continuity — at enterprise scale."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionHeading
+            eyebrow="Why Choose Us"
+            title="Craft, care, and continuity — at enterprise scale."
+          />
+        </motion.div>
 
         <div className="mt-14 grid gap-5 lg:grid-cols-2">
           {advantages.map((a, i) => (
             <motion.div
               key={a.title}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
+              viewport={{ once: false, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               className="group relative flex items-start gap-5 overflow-hidden rounded-[28px] border border-white/60 bg-white/75 p-6 shadow-glass backdrop-blur-md transition-all hover:-translate-y-0.5"
             >
               <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-accent/20 blur-3xl" />
@@ -767,7 +802,7 @@ function WhyUs() {
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${a.pct}%` }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 1.1, delay: i * 0.05, ease: "easeOut" }}
                     className="h-full rounded-full gradient-accent"
                   />
@@ -790,17 +825,17 @@ const bigStats = [
 
 function Stats() {
   return (
-    <section className="relative -mt-10 pb-16">
+    <section className="relative -mt-6 pb-12 sm:pb-16">
       <WaveDivider from="var(--surface)" to="var(--background)" />
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {bigStats.map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
+              viewport={{ once: false, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
               className="group relative flex aspect-square flex-col justify-between overflow-hidden rounded-[22px] border border-white/60 bg-white/80 p-4 shadow-glass backdrop-blur-md sm:aspect-auto sm:rounded-[26px] sm:p-6"
             >
               <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/25 blur-2xl" />
@@ -836,13 +871,20 @@ const steps = [
 
 function Process() {
   return (
-    <section id="proses" className="relative py-24 sm:py-32">
+    <section id="proses" className="relative py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-        <SectionHeading
-          eyebrow="Our Process"
-          title="A transparent journey — from brief to launch."
-          desc="Six carefully orchestrated stages that keep your project on time, on scope, and on brand."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionHeading
+            eyebrow="Our Process"
+            title="A transparent journey — from brief to launch."
+            desc="Six carefully orchestrated stages that keep your project on time, on scope, and on brand."
+          />
+        </motion.div>
 
         <div className="relative mt-16">
           {/* horizontal connector line (desktop) */}
@@ -853,10 +895,10 @@ function Process() {
             {steps.map((s, i) => (
               <motion.li
                 key={s.n}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.45, delay: i * 0.06 }}
+                viewport={{ once: false, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative flex flex-col items-center text-center"
               >
                 {/* node */}
@@ -885,8 +927,8 @@ function Process() {
                   key={s.n}
                   initial={{ opacity: 0, x: 24 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  viewport={{ once: false, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
                   className="relative w-[240px] shrink-0 snap-center"
                 >
                   <div className="flex items-center gap-3">
@@ -923,7 +965,7 @@ const testimonials = [
     role: "Head of IT",
     org: "Dinas Kominfo",
     quote:
-      "SagaraStudio delivered a portal that meets our stringent government standards and remains a genuine pleasure to use for our staff — day after day.",
+      "Kencana Digital delivered a portal that meets our stringent government standards and remains a genuine pleasure to use for our staff — day after day.",
     initials: "SA",
     color: "from-[oklch(0.45_0.18_230)] to-[oklch(0.35_0.16_250)]",
     tag: "Government",
@@ -983,13 +1025,20 @@ function Testimonials() {
     if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
   };
   return (
-    <section id="testimoni" className="relative overflow-hidden bg-surface py-24 sm:py-32">
+    <section id="testimoni" className="relative overflow-hidden bg-surface py-12 sm:py-16 lg:py-20">
       <div className="pointer-events-none absolute inset-0 -z-10 gradient-ocean opacity-60" />
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-10">
-        <SectionHeading
-          eyebrow="Testimonials"
-          title="Voices from the ocean of our clients."
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionHeading
+            eyebrow="Testimonials"
+            title="Voices from the ocean of our clients."
+          />
+        </motion.div>
 
         {/* 3-D card stack */}
         <div
@@ -1141,9 +1190,15 @@ function Testimonials() {
 
 function CTA() {
   return (
-    <section className="relative py-20 sm:py-28">
+    <section className="relative py-12 sm:py-16">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <div className="relative overflow-hidden rounded-[36px] gradient-hero p-10 shadow-glass sm:p-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="relative overflow-hidden rounded-[36px] gradient-hero p-10 shadow-glass sm:p-16"
+        >
           {/* floating shapes */}
           <div className="pointer-events-none absolute -left-16 top-6 h-56 w-56 rounded-[45%_55%_50%_50%] bg-accent/25 blur-2xl" />
           <div className="pointer-events-none absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-[oklch(0.55_0.14_235/0.35)] blur-3xl" />
@@ -1202,7 +1257,7 @@ function CTA() {
               </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -1223,9 +1278,15 @@ function Contact() {
     toast.success("Message sent. Our team will reach out shortly.");
   };
   return (
-    <section id="kontak" className="relative py-24 sm:py-32">
+    <section id="kontak" className="relative py-12 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-10">
-        <div className="overflow-hidden rounded-[36px] border border-white/60 bg-white/80 shadow-glass backdrop-blur-md">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          className="overflow-hidden rounded-[36px] border border-white/60 bg-white/80 shadow-glass backdrop-blur-md"
+        >
           <div className="grid lg:grid-cols-12">
             <div className="relative overflow-hidden gradient-hero p-10 text-primary-foreground lg:col-span-5 lg:p-12">
               <div className="pointer-events-none absolute inset-0 opacity-30 gradient-mesh" />
@@ -1245,7 +1306,7 @@ function Contact() {
                     </span>
                     <div>
                       <div className="text-[11px] uppercase tracking-wider text-white/60">Email</div>
-                      <div className="text-sm font-semibold">hello@sagarastudio.id</div>
+                      <div className="text-sm font-semibold">hello@kencanadigital.id</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
@@ -1331,7 +1392,7 @@ function Contact() {
               </Button>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -1364,14 +1425,14 @@ function Footer() {
       <div className="pointer-events-none absolute -right-20 top-20 h-72 w-72 rounded-full bg-accent/20 blur-3xl" />
       <div className="pointer-events-none absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-secondary/40 blur-3xl" />
 
-      <div className="relative mx-auto max-w-[1400px] px-4 pt-32 pb-10 sm:px-6 lg:px-10">
+      <div className="relative mx-auto max-w-[1400px] px-4 pt-20 pb-10 sm:px-6 sm:pt-24 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="flex items-center gap-2.5">
               <span className="grid h-10 w-10 place-items-center rounded-xl gradient-accent text-accent-foreground shadow-glass">
                 <WavesIcon className="h-5 w-5" />
               </span>
-              <div className="font-display text-lg font-bold">SagaraStudio</div>
+              <div className="font-display text-lg font-bold">Kencana Digital</div>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
               A coastal-tech digital agency crafting elegant, enterprise-grade digital experiences
@@ -1423,7 +1484,7 @@ function Footer() {
                 Contact
               </div>
               <ul className="mt-4 space-y-2.5 text-sm text-white/80">
-                <li>hello@sagarastudio.id</li>
+                <li>hello@kencanadigital.id</li>
                 <li>+62 812 3456 7890</li>
                 <li>Jakarta, Indonesia</li>
               </ul>
@@ -1459,7 +1520,7 @@ function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/55 sm:flex-row">
-          <div>© {new Date().getFullYear()} SagaraStudio. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Kencana Digital. All rights reserved.</div>
           <div className="flex items-center gap-5">
             <a href="#" className="hover:text-accent">Privacy</a>
             <a href="#" className="hover:text-accent">Terms</a>
